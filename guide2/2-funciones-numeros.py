@@ -1,4 +1,4 @@
-# FUNCIONES
+# FUNCIONES NUMEROS
 '''
 2. Escribir funciones para:
 a. Generar una lista de N números aleatorios del 1 al 100. El valor de N se ingresa
