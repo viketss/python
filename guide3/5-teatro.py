@@ -1,4 +1,4 @@
-# TEATR/CINE
+# TEATRO/CINE
 '''
 Desarrollar un programa que permita realizar reservas en una sala de cine de N
 filas con M butacas por cada fila. Desarrollar las siguientes funciones y utilizarlas

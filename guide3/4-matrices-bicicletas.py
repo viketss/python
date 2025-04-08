@@ -20,8 +20,15 @@ import random
 # DATOS[f][c]: unidades producidas (bicicletas)
 
 # A - crear matriz de produccion con datos aleatorios
-def crearMatrizProduccion():
-    filas_cantidad_fabricas = int(input('Ingresar cantidad de fabricas (filas de la matriz): '))
+def crearMatrizProduccion(filas_cantidad_fabricas):
+    '''
+    Crea la matriz de con datos aleatorios de produccion de biciletas
+    Argumentos:
+        filas_cantidad_fabricas (int): La cantidad de fábricas (filas) para crear la matriz
+    Return:
+        lista: Una matriz (lista de listas) - cada fila representa una fábrica y cada columna representa los 6 días de la semana.
+            Las casillas son la cantidad de bicicletas producidas por dia
+    '''
     columnas = 6 # dias de la semana
     matriz_produccion = []
     
@@ -33,11 +40,19 @@ def crearMatrizProduccion():
     return matriz_produccion
 
 def mostrarMatriz(matriz):
+    """
+    Muestra una matriz de producción de bicicletas en formato de cuadro
+    Argumentos:
+        matriz (lista): una matriz donde cada fila representa una fábrica y cada columna representa los días de la semana.
+            Las casillas contienen la cantidad de bicicletas producidas por día.
+    Return:
+        Esta función no retorna ningún valor, imprime la matriz directamente en la consola
+    """
     print('Matriz de produccion: ')
     print('Dias:   Lunes  Martes  Miercoles  Jueves  Viernes  Sabado')
     for fila in matriz:
         for valor in fila:
-            print(f"{valor:10}", end="")
+            print("%10d" % valor, end="")
         print()
 
 def totalBicicletasPorFabrica(matriz):
@@ -77,7 +92,8 @@ def menorProduccionPorFabrica(matriz):
 
 # PROGRAMA PRINCIPAL
 # (a)
-mimatriz = crearMatrizProduccion()
+filas_cantidad_fabricas = int(input('Ingresar cantidad de fabricas (filas de la matriz): '))
+mimatriz = crearMatrizProduccion(filas_cantidad_fabricas)
 mostrarMatriz(mimatriz)
 
 # (b) cantidad total de bicicletas fabricadas por cada fábrica
