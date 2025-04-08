@@ -34,9 +34,11 @@ def crearMatrizProduccion():
 
 def mostrarMatriz(matriz):
     print('Matriz de produccion: ')
-    print('Dias: (Lunes) (Martes) (Miercoles) (Jueves) (Viernes) (Sabado)')
-    for i, fila in enumerate(matriz):
-        print(f'Fabrica {i + 1}: {fila}')
+    print('Dias:   Lunes  Martes  Miercoles  Jueves  Viernes  Sabado')
+    for fila in matriz:
+        for valor in fila:
+            print(f"{valor:10}", end="")
+        print()
 
 def totalBicicletasPorFabrica(matriz):
     #listas por compresion --> <lista> = [<expresion> for <elemento> in <secuencia>]
