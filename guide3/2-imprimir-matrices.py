@@ -9,7 +9,8 @@ def generar_matriz_a(n):
     """Genera la matriz 'a' de tamaño NxN."""
     matriz = [[0 for _ in range(n)] for _ in range(n)]
     for i in range(n):
-        matriz[i][i] = i + 1
+        if i % 2 != 0:
+            matriz[i][i] = i
     return matriz
 
 def generar_matriz_b(n):
