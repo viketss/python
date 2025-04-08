@@ -43,18 +43,8 @@ def totalBicicletasPorFabrica(matriz):
     total_por_fabrica = [sum(fila) for fila in matriz]
     return total_por_fabrica 
 
-# Programa principal
-mimatriz = crearMatrizProduccion()
-mostrarMatriz(mimatriz)
 
-# b - cantidad total de bicicletas fabricadas por cada fábrica
-total_bicicletas = totalBicicletasPorFabrica(mimatriz)
-print("\nTotal de bicicletas fabricadas por cada fábrica:")
-for i, total in enumerate(total_bicicletas):
-    print(f'Fábrica {i + 1}: {total} bicicletas') # suma de cada fila (fabrica)
-# ---------------------------------------------------------------------------------#
-#VERRRRRRRRRRRRRRRR
-
+# c. Cuál es la fábrica que más produjo en un solo día (detallar día y fábrica).
 def fabricaMasProductiva(matriz):
     max_produccion = 0
     dia_max = 0
@@ -67,32 +57,42 @@ def fabricaMasProductiva(matriz):
                 dia_max = c
                 fabrica_max = f
 
-    return fabrica_max + 1, dia_max + 1, max_produccion  # +1 para que sea más legible
+    return fabrica_max + 1, dia_max + 1, max_produccion 
 
+# d. Cuál es el día más productivo, considerando todas las fábricas combinadas.
 def diaMasProductivo(matriz):
-    total_por_dia = [0] * len(matriz[0])  # Inicializar lista para total por día
+    total_por_dia = [0] * len(matriz[0])  # cantidad de elementos de la primer fila = cantidad de columnas
 
     for c in range(len(matriz[0])):
         for f in range(len(matriz)):
             total_por_dia[c] += matriz[f][c]
 
-    dia_max = total_por_dia.index(max(total_por_dia))  # Obtener el índice del día más productivo
-    return dia_max + 1, total_por_dia[dia_max]  # +1 para que sea más legible
+    dia_max = total_por_dia.index(max(total_por_dia))  # índice del día más productivo
+    return dia_max + 1, total_por_dia[dia_max]  # (+1 para que sea más legible)
 
 def menorProduccionPorFabrica(matriz):
-    return [min(fila) for fila in matriz]  # Lista por comprensión para la menor producción
+    return [min(fila) for fila in matriz]  # lista por comprensión para la menor producción
 
-#verrrrrrrrrrrrrrrrrrrrrrrrr
+# PROGRAMA PRINCIPAL
+# (a)
+mimatriz = crearMatrizProduccion()
+mostrarMatriz(mimatriz)
 
-# c. Fábrica que más produjo en un solo día
+# (b) cantidad total de bicicletas fabricadas por cada fábrica
+total_bicicletas = totalBicicletasPorFabrica(mimatriz)
+print("\nTotal de bicicletas fabricadas por cada fábrica (por semana):")
+for i, total in enumerate(total_bicicletas):
+    print(f'Fábrica {i + 1}: {total} bicicletas') # suma de cada fila (fabrica)
+
+# (c) fábrica que más produjo en un solo día
 fabrica_max, dia_max, max_produccion = fabricaMasProductiva(mimatriz)
 print(f'\nLa fábrica {fabrica_max} produjo la mayor cantidad de bicicletas en un solo día: {max_produccion} bicicletas (Día {dia_max})')
 
-# d. Día más productivo
+# (d) dia mas productivo
 dia_max, total_dia_max = diaMasProductivo(mimatriz)
 print(f'\nEl día más productivo fue el día {dia_max} con un total de {total_dia_max} bicicletas producidas.')
 
-# e. Menor cantidad fabricada por cada fábrica
+# (e) menor cantidad fabricada por cada fábrica
 menor_produccion = menorProduccionPorFabrica(mimatriz)
 print("\nMenor cantidad fabricada por cada fábrica:")
 for i, menor in enumerate(menor_produccion):
