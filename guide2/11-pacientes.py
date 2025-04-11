@@ -1,4 +1,4 @@
-
+# SISTEMA DE GESTION DE PACIENTES EN UNA CLINICA
 '''
 Resolver el siguiente problema, diseñando las funciones a utilizar:
 Una clínica necesita un programa para atender a sus pacientes. Cada paciente que
