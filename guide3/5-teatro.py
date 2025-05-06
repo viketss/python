@@ -78,7 +78,7 @@ def main():
     filas = int(input("Ingresar la cantidad de filas de la sala: "))
     butacas = int(input("Ingresar la cantidad de butacas de la sala: "))
     salaCine = crearSalaCine(filas, butacas)
-
+    
     mostrarButacas(salaCine)
 
     # Solicitar la fila y columna para reservar
